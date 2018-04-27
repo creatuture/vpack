@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>dataplat-wx-template-static</title>
+      <script crossorigin="anonymous" src="//www.dpfile.com/app/owl/static/owl_1.4.31.js"></script>
+      <script>
+          // 在head中启动自动捕捉脚本，自动上报资源性能、页面性能、全局的JS错误
+          Owl.start({
+              project: 'dataplat-wx-template-static', // 建议使用前端项目名，package.json或者f2eci.json中的name
+              pageUrl: location.href,
+              devMode: true,   // 开启调试数据上报到cat的beta接口
+              page:{          // 页面性能上报
+                  sample: 1,
+                  auto: true
+              },
+              resource:{     // 资源性能和成功率上报
+                  sampleApi: 1,
+                  combo: true, // 合并上报、默认为true
+                  delay: 2000  // 延时设置，默认为1000ms
+              },
+              error: {      // 错误日志上报
+                  sample: 1,
+                  combo: true
+              },
+              invalid: {
+                  ajax: false // 关闭上报非信赖域名的ajax请求
+              },
+              autoCatch: {    // 是否自动捕获和上报JS、ajax以及资源错误的配置项
+                  js: true,
+                  ajax: false,
+                  resource: false
+              },
+              timeout: { // 超时上报
+                  flag: true
+              }
+          })
+      </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script>
+        window.__APP_NAME__ = 'wanxiang';
+        window.__API_DOMAIN__ = '<%= htmlWebpackPlugin.options.apiDomain %>';
+        window.__SSO_CLIENTID__ = '<%= htmlWebpackPlugin.options.ssoClientId %>';
+        window.__SSO_DOMAIN__ = '<%= htmlWebpackPlugin.options.ssoDomain %>';
+        window.__ENV__ = '<%= htmlWebpackPlugin.options.env %>';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+version: v1
+common:
+   tools:
+      gcc: 4.8.5
+      node: v8.9.0
+build:
+   run:
+      cmd:
+           - npm i npm -g --registry=http://r.npm.sankuai.com
+           - npm i --registry=http://r.npm.sankuai.com
+           - CONFIG_ENV=test2
+           - NODE_ENV=production
+           - npm run build
+
+   target:
+       distDir: ./dist
+       files:
+           - ./*
+deploy:
+   targetDir: /opt/meituan/www/dataplat-wx-template-static
+   run:
+       workDir: /opt/meituan/www/dataplat-wx-template-static
+       cmd:
+           - curl "http://10.20.63.246:8080/wxapi/fe/set_index?indexUrl=http%3A%2F%2Fstatic.fetc.test.sankuai.com%2Fdataplat-wx-template-static%2Findex.html&path=template"

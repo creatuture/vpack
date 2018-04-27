@@ -1,18 +1,44 @@
-'use strict';
-const pkg = require('../package');
-
 module.exports = {
-    title: '{{name}}',
-    // Options for webpack-dev-server
-    // See https://webpack.js.org/configuration/dev-server
-    devServer: {
-        host: 'localhost',
-        port: 4000
+    local: {
+        apiDomain: '//localhost:8089',
+        ssoDomain: '//develop.sso.test.sankuai.info',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'development',
+        publicPath: '/',
     },
-    // when you use electron please set to relative path like ./
-    // otherwise only set to absolute path when you're using history mode
-    publicPath: '{{#if electron}}.{{/if}}/',{{#if electron}}
-    electron: true,{{/if}}{{#if jsx}}
-    cssModules: true,
-    jsx: true{{/if}}
+    test1: {
+        apiDomain: '//10.20.60.229:8080',
+        ssoDomain: '//develop.sso.test.sankuai.info',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'production',
+        publicPath: '//static.fetc.test.sankuai.com/dataplat-wx-template-static/'
+    },
+    test2: {
+        apiDomain: '//10.20.63.246:8080',
+        ssoDomain: '//develop.sso.test.sankuai.info',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'production',
+        publicPath: '//static.fetc.test.sankuai.com/dataplat-wx-template-static/'
+    },
+    staging1: {
+        apiDomain: '//10.23.87.163:8080',
+        ssoDomain: '//develop.sso.test.sankuai.info',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'production',
+        publicPath: '//static.fetc.st.sankuai.com/dataplat-wx-template-static/'
+    },
+    staging2: {
+        apiDomain: '//10.23.88.183:8080',
+        ssoDomain: '//develop.sso.test.sankuai.info',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'production',
+        publicPath: '//static.fetc.st.sankuai.com/dataplat-wx-template-static/'
+    },
+    online: {
+        apiDomain: 'http://data.sankuai.com',
+        ssoDomain: 'https://sso.sankuai.com',
+        ssoClientId: 'com.sankuai.data.wanxiang.wanxiang',
+        env: 'production',
+        publicPath: '//s0.meituan.net/mxx/dataplat-wx-template-static/'
+    }
 };
